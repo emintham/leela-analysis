@@ -180,7 +180,9 @@ class CLI(object):
         raise Exception("Failed to send command '%s' to Leela" % (cmd))
 
     def start(self):
-        xargs = []
+        executable_split = self.executable.split(' ')
+        self.executable = executable_split[0]
+        xargs = executable_split[1:]
 
         if self.verbosity > 0:
             print >>sys.stderr, "Starting leela..."
